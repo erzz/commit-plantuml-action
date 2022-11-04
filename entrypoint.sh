@@ -20,6 +20,8 @@ cd ${GITHUB_WORKSPACE}
 git fetch
 SRC_FILES=$(git diff origin/${GITHUB_BASE_REF} --name-only | grep ".puml")
 
+echo "SRC_FILES: ${SRC_FILES}" # DEBUG
+
 if [[ ! "${SRC_FILES}" ]]; then
   echo "INFO: No PlantUML files found."
   exit 0

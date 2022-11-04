@@ -1,10 +1,8 @@
-FROM ubuntu:latest
+FROM bellsoft/liberica-openjdk-alpine:17.0.5
 
-ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update 
 RUN apt-get install -y fonts-ipafont graphviz wget openjdk-8-jre git curl
-RUN wget -P / --content-disposition https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
+RUN wget -P / --content-disposition https://github.com/plantuml/plantuml/releases/download/v1.2022.12/plantuml.jar
 
 COPY entrypoint.sh /entrypoint.sh
 

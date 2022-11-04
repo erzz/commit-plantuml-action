@@ -3,14 +3,14 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: generate and commit diagrams
         uses: ./
         with:
           botEmail: ${{ secrets.BOT_EMAIL }}
-          botGithubToken: ${{ secrets.BOT_PAT }}
+          botGithubToken: ${{ secrets.GITHUB_TOKEN }}
           enableReviewComment: true
